@@ -25,7 +25,7 @@ setTimeout(function(){document.getElementById('flag').innerHTML=" ";},2000);}
 else{
 
 
-window.location.href= "index.php?page=cpanel";   
+window.location.href= "index.php?page=cpanel&name="+user;   
 }
 }
 }
@@ -36,7 +36,3 @@ xmlhttp.send();
 
 
 }
-
-
-
-

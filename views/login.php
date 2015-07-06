@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-     $dbname = "basep_16359700_ems";
+               $dbname = "basep_16359700_ems";
+
         
         $server = "sql310.base.pk";
         $user ="basep_16359700";
@@ -15,7 +16,6 @@ session_start();
         if(!$db) {
             return false;
         }
-        
 
 
 $username = stripslashes($_GET["auser"]);
@@ -35,9 +35,7 @@ if ($rows != 1)
 else {
 
 $result=mysql_fetch_array($data);
-$_SESSION['id'] =$result["emp_id"];
 $_SESSION['right'] =$result["flag"];
-$_SESSION['userid'] =$result["username"];
 echo "True";
      }                                
 

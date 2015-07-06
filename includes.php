@@ -2,6 +2,7 @@
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../Style/engine1//style.css" />
 	<script type="text/javascript" src="../Style/engine1/jquery.js"></script>
 
@@ -124,7 +125,9 @@ margin-top:30px;
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="js/bootstrap.min.js"></script>
 <script src="js/form_validator.js"></script>
-<script src="js/myscript.js"> </script>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- ript src="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.js"></script>
 <link rel="stylesheet" href="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.css">
 -->
