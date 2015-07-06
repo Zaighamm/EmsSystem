@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("helpers.php");
+require("helpers.php");
 
 
 if(isset($_GET['page'])) 

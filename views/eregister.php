@@ -9,29 +9,24 @@ $address=$_POST['Address'];
 $phone=$_POST['Phone'];
 
 
-      $dbname = "basep_16359700_ems";
-
-        
-        $server = "sql310.base.pk";
-        $user ="basep_16359700";
-        $pass = "11105090";
-
-        // Establishing Connection 
-        $connection = mysql_connect($server, $user, $pass);
-
-        // Selecting Database
-        $db = mysql_select_db($dbname, $connection);
-        if(!$db) {
-            return false;
-        }
+$addedby=$_SESSION['id'];
         
 
-        $sql = "INSERT INTO `basep_16359700_ems`.`employees` (`id`, `name`, `phone`, `email`, `jobtype`, `gender`, `address`,`aid`)  VALUES (NULL, '$name', '$phone', '$email', '$jtype','$gender','$address','1')";
+        $sql = "INSERT INTO employees (`id`, `name`, `phone`, `email`, `jobtype`, `gender`, `address`,`added_by`)  VALUES (NULL, '$name', '$phone', '$email', '$jtype','$gender','$address','$addedby')";
         // SQL query 
-        $query = mysql_query($sql, $connection);
-        $r="INSERT INTO login (`id`, `username`, `password`, `flag`) VALUES (NULL, '$name', MD5('$pass'), 'E')";
- $query = mysql_query($r, $connection);
-
+        $query = query($sql);
+        if(!$query)
+           echo "error";
+      
+ $query = query("select max(id) from employees");
+ if(!$query)
+           echo "error";
+       while($max=mysql_fetch_assoc($query))
+       $employee_id=$max["max(id)"];
+       
+$sql="INSERT INTO login (`id`, `username`, `password`, `flag`, `emp_id`) VALUES (NULL,'$name',MD5('$pass'), 'E','$employee_id')";      
+$query= query($sql);
+       
 
 if($query){
 echo '<div class = "row">
