@@ -5,7 +5,7 @@ if(!isset($_SESSION["right"]))
 header("Location: index.php?page=home");
 }
 if(isset($_SESSION['start_time'])){
-if($_SESSION['start_time'] <= strtotime("-10 minutes"))
+if($_SESSION['start_time'] <= strtotime("-20 minutes"))
 {
 ?>
 <div class = "row">
@@ -122,23 +122,30 @@ jQuery(document).ready(function(){
                     <div class="col-lg-4 col-md-5 col-sm-12" style="min-height: 200px; min-width:200px;">
                     <img class="img-responsive" src="views\img.jpg">
                     </div>
+                             
                             <div class="col-lg-7 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-12">
-                                    <div class = "row">
+                                   <div class = "row">
                                     <h2>Hi <?php echo $name; ?></h2>
                                     <p> Welcome to Office Employee Management System.</p>
                                     </div> 
+                                 <div class="form-group col-md-8 well"> 
                                     <div class = "row">
-                                    <b>Job Type:</b> <?php echo $job; ?>
-                                    </div>
-                                    <div class = "row">
-                                    <b>Email:</b> <?php echo $email; ?>
-                                    </div>
-                                    <div class = "row">
-                                    <b>Phone:</b> <?php echo $phone; ?>
-                                    </div>
-                                    <div class = "row">
-                                    <b>Address:</b> <?php echo $address; ?>
-                                    </div>
+                                        <label style="">Job Type:</label>
+                       <label id="my_label" style="min-width: 40% "><p style="margin:10px; margin-top:5px;"><?php echo $job;?></p></label>
+                                           </div>
+                                       <div class = "row">
+                                        <label style="">Email:</label>
+                       <label id="my_label" style="min-width: 40% "><p style="margin:10px; margin-top:5px;"><?php echo $email;?></p></label>
+                                           </div>
+                                       <div class = "row">
+                                        <label style="">Phone:</label>
+                       <label id="my_label" style="min-width: 40% "><p style="margin:10px; margin-top:5px;"><?php echo $phone;?></p></label>
+                                </div>
+                                <div class = "row">
+                                        <label style="">Address:</label>
+                       <label id="my_label" style="min-width: 40% "><p style="margin:10px; margin-top:5px;"><?php echo $address;?></p></label>
+                                </div>
+                                </div>  
 
                             </div>
                 </div>

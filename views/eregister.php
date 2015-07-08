@@ -12,7 +12,7 @@ $phone=$_POST['Phone'];
 $addedby=$_SESSION['id'];
         
 
-        $sql = "INSERT INTO employees (`id`, `name`, `phone`, `email`, `jobtype`, `gender`, `address`,`added_by`)  VALUES (NULL, '$name', '$phone', '$email', '$jtype','$gender','$address','$addedby')";
+        $sql = "INSERT INTO employees (`id`, `name`, `phone`, `email`, `jobtype`, `gender`, `address`,`added_by`,`Join_Date`)  VALUES (NULL, '$name', '$phone', '$email', '$jtype','$gender','$address','$addedby',now())";
         // SQL query 
         $query = query($sql);
         if(!$query)

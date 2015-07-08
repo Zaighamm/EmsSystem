@@ -122,7 +122,7 @@ margin-top:30px;
 
 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
 <script src="js/form_validator.js"></script>
 <script src="js/myscript.js"> </script>
 <!-- ript src="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.js"></script>

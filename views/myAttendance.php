@@ -4,7 +4,7 @@ if(!isset($_SESSION["right"]))
 header("Location: index.php?page=home");
 }
 if(isset($_SESSION['start_time'])){
-if($_SESSION['start_time'] <= strtotime("-20 minutes"))
+if($_SESSION['start_time'] <= strtotime("-10 minutes"))
 {
 ?>
             <div class = "row">
@@ -29,6 +29,8 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
     
 }
 }
+if(isset($_GET["my_id"]))
+$my_id=$_GET["my_id"];
 
 ?>
             <div class="row">
@@ -36,32 +38,30 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                     <!-- Advanced Tables -->
                     <div class="panel panel-primary">
                             <div class="panel-heading">
-                                 Employees List
+                                 Attendance List
                             </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Employee ID</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Job Type</th>
-                                            <th>Gender</th>
-                                            <th>Address</th>
-                                            <th>Joining Date</th>
-                                            <th>Leaving Date</th>
-                                            <th>#</th>
-                                            <th>#</th>
+                                            <th>Attendance Date</th>
+                                            <th>Attendance Status</th>
                                         </tr>
                                     </thead>
                               
                                     <tbody><div id="data">
-                                            <?php
-                                       loaddata();
-
-                                            ?>
+                                        <?php
+                      $result=query("select * from emp_attendance where empid=$my_id"); 
+                   
+                                            while($row=mysql_fetch_array($result)){
+                                            
+                                                $output="<tr><td id='na'>".$row['Date']."</td><td>".$row['Attendance Status']."</td></tr>";
+                                            echo $output;
+                                                
+                                               
+                                            }
+?>
                                          </div>
                                     </tbody>
                               
@@ -75,42 +75,9 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                          <script src="assets/js/dataTables/jquery.dataTables.js"></script>
                          <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
 </div>
-
-
-
-     <!-- DATA TABLE SCRIPTS -->
-        <script>
+   <script>
 
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();
             });
-
-         function delete_emp($id)
-            {
-                    var r = confirm("Do you Really want to delete?");
-                            if (r == true) {
-
-
-                                 $.ajax({
-                                        url: "views/deleteEmployee.php",
-                                        data:{del_id: $id },
-                                        type:"post",
-
-                                            success: function(data){ 
-                                             $.ajax({
-                                            url: "",
-                                            context: document.body,
-                                            success: function(s,x){
-                                            $(this).html(s);
-                                            }
-                                            });
-                                                               }
-                                 });
-
-                            }
-
-}
-          
-       </script>
-
-  <script src="js/bootstrap.js"></script>
+</script>

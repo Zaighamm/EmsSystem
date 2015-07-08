@@ -4,7 +4,7 @@ if(!isset($_SESSION["right"]))
 header("Location: index.php?page=home");
 }
 if(isset($_SESSION['start_time'])){
-if($_SESSION['start_time'] <= strtotime("-10 minutes"))
+if($_SESSION['start_time'] <= strtotime("-20 minutes"))
 {
 ?>
 <div class = "row">

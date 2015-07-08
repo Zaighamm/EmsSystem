@@ -11,7 +11,8 @@ function render($file, $data=array())
            }
 	}
     function query($sql) {
-          $dbname = "basep_16359700_ems";
+            $dbname = "ems";
+ $dbname = "basep_16359700_ems";
         
         $server = "sql310.base.pk";
         $user ="basep_16359700";
@@ -42,16 +43,24 @@ function render($file, $data=array())
     {
 
                                             $result=query("select * from employees"); 
-
+                   
                                             while($row=mysql_fetch_array($result)){
-                                                $output="<tr class><td>".$row['id']."</td><td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['jobtype']."</td><td>
-     <button type='button' class='btn-sm btn-info' onclick='update(".$row['id'].");'>
-     Update</button>
-  </div></td><td>
+                                                $check=$row['Lev_Date'];
+                                               if($check==null)
+                                               { $check="  N/A  ";
+                                               }
+                                                $output="<tr><td>".$row['id']."</td><td id='na'>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['jobtype']."</td>
+<td>".$row['gender']."</td><td>".$row['address']."</td>
+<td>".$row['Join_Date']."</td><td>".$check."</td>
+<td>
+  <a type='button'  class='btn-sm btn-info' href='index.php?page=UpdateEmployee&empdata=".$row['id']."'>
+     Update</a>  </td><td>
      <button type='button' class='btn-sm btn-danger' onclick='delete_emp(".$row['id'].");'>
      Delete</button>
-  </div></td></tr>";
+  </td></tr>";
                                             echo $output;
+                                                
+                                               
                                             }
 
     }
