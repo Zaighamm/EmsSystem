@@ -1,10 +1,10 @@
 <?php
 session_start();
-      $dbname = "basep_16359700_ems";
+      $dbname = "ems";
         
-        $server = "sql310.base.pk";
-        $user ="basep_16359700";
-        $pass = "11105090";
+        $server = "localhost";
+        $user ="root";
+        $pass ="";
 
         // Establishing Connection 
         $connection = mysql_connect($server, $user, $pass);

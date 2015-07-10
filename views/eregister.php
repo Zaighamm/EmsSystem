@@ -1,4 +1,6 @@
 <?php
+if(isset($_POST["addemp"]))
+{
 $name=$_POST['Name'];
 $email=$_POST['Email'];
 $pass=$_POST['pass'];
@@ -12,23 +14,22 @@ $phone=$_POST['Phone'];
 $addedby=$_SESSION['id'];
         
 
-        $sql = "INSERT INTO employees (`id`, `name`, `phone`, `email`, `jobtype`, `gender`, `address`,`added_by`,`Join_Date`)  VALUES (NULL, '$name', '$phone', '$email', '$jtype','$gender','$address','$addedby',now())";
+       
         // SQL query 
-        $query = query($sql);
+        $query=query("INSERT INTO employees (`id`, `name`, `phone`, `email`, `jobtype`, `gender`, `address`,`added_by`,`Join_Date`)  VALUES (NULL, '$name', '$phone', '$email', '$jtype','$gender','$address','$addedby',now())");
         if(!$query)
            echo "error";
       
- $query = query("select max(id) from employees");
- if(!$query)
+ $query1=query("select max(id) from employees");
+ if(!$query1)
            echo "error";
-       while($max=mysql_fetch_assoc($query))
+       while($max=mysql_fetch_assoc($query1))
        $employee_id=$max["max(id)"];
-       
-$sql="INSERT INTO login (`id`, `username`, `password`, `flag`, `emp_id`) VALUES (NULL,'$name',MD5('$pass'), 'E','$employee_id')";      
-$query= query($sql);
+          
+$query2= query("INSERT INTO login (`id`, `username`, `password`, `flag`, `emp_id`) VALUES (NULL,'$name',MD5('$pass'), 'E','$employee_id')");
        
 
-if($query){
+if($query2){
 echo '<div class = "row">
         <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
             <div class="well align-center">
@@ -37,7 +38,7 @@ Employee Added Successfully. <br>Your User Name:'.$name.'<br>Password:'.$pass.'<
     </div>';
 ?>
  <script>
-setTimeout("location.href = 'index.php?page=cpanel';",5000);
+setTimeout("location.href = 'index.php?page=cpanel';",100000);
 </script>
 <?php
 
@@ -55,9 +56,11 @@ Employee Not Added Employee please enter a new username.
     </div>';
     ?>
  <script>
-setTimeout("location.href = 'index.php?page=newemployee';",5000);
+setTimeout("location.href = 'index.php?page=newemployee';",100000);
 </script>
 <?php
+
+}
 
 }
 

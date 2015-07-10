@@ -36,7 +36,7 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                     <!-- Advanced Tables -->
                     <div class="panel panel-primary">
                             <div class="panel-heading">
-                                 Employees Attendance List
+                                Employee Projects and Client Details
                             </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -44,19 +44,29 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                                     <thead>
                                         <tr>
                                             <th>Employee ID</th>
-                                            <th>Name</th>
-                                            <th>Attendance Date</th>
-                                            <th>Attendance Status</th>
+                                            <th>Name </th>
+                                            <th>Project</th>
+                                            <th>Client Name</th>
+                                            <th>Client Company name</th>
                                         </tr>
                                     </thead>
                               
                                     <tbody><div id="data">
                                         <?php
-                      $result=query("SELECT e.id,e.name,ea.AttendanceStatus,ea.Date from emp_attendance ea,employees e where e.id=ea.empid"); 
+                      $result=query("select * from employees"); 
                    
                                             while($row=mysql_fetch_array($result)){
-                                            
-                                                $output="<tr><td>".$row['id']."</td><td>".$row['name']."</td><td id='na'>".$row['Date']."</td><td>".$row['AttendanceStatus']."</td></tr>";
+                                                $project=$row['project'];
+                                                $client=$row['client'];
+                                                $clientc=$row['clientc'];
+                                                if($project==null)
+                                                { $project=" N/A ";
+                                                  $client=" N/A ";
+                                                  $clientc=" N/A ";
+                                                }
+
+
+                                                $output="<tr><td>".$row['id']."</td><td>".$row['name']."</td><td>".$project."</td><td>".$client."</td><td>".$clientc."</td></tr>";
                                             echo $output;
                                                 
                                                

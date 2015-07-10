@@ -3,11 +3,10 @@
 $del_id=$_POST["del_id"];
 
 
-      $dbname = "basep_16359700_ems";
-        
-        $server = "sql310.base.pk";
-        $user ="basep_16359700";
-        $pass = "11105090";
+        $dbname = "ems";
+        $server = "localhost";
+        $user ="root";
+        $pass = "";
 
         // Establishing Connection 
         $connection = mysql_connect($server, $user, $pass);
