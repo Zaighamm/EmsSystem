@@ -1,11 +1,10 @@
 <?php
 session_start();
 
-        $dbname = "basep_16359700_ems";
-        
-        $server = "sql310.base.pk";
-        $user ="basep_16359700";
-        $pass = "11105090";
+        $dbname = "ems";
+        $server = "localhost";
+        $user ="root";
+        $pass = "";
 
 
         // Establishing Connection 
@@ -27,7 +26,7 @@ $password = mysql_real_escape_string($_GET["apass"]);
   $_SESSION['start_time'] = strtotime("now");
 
 
-	$data = mysql_query("select * from login where password=MD5('$password') AND username='$username'", $connection);
+	$data = mysql_query("select * from login where password=MD5('$password') AND binary username='$username'", $connection);
 
 
 $rows = mysql_num_rows($data);

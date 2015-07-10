@@ -52,15 +52,55 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                                             <th>Address</th>
                                             <th>Joining Date</th>
                                             <th>Leaving Date</th>
-                                            <th>#</th>
-                                            <th>#</th>
+                                            <th>Status</th>
+                                            <?php  if($_SESSION['right']=="A"){ ?>    <th>#</th> 
+                                            <th>#</th> <?php } ?>
                                         </tr>
                                     </thead>
                               
                                     <tbody><div id="data">
                                             <?php
-                                       loaddata();
-
+                                    $result=query("select * from employees"); 
+                   
+                                            while($row=mysql_fetch_array($result))
+                                            {
+                                                $check=$row['Lev_Date'];
+                                                $status=$row['status'];
+                                                
+                                                if($check==null)
+                                               { $check="  N/A  ";
+                                               }
+                                                
+                                               
+                                                  $label="Active";
+                                                  $color="green";
+                                               
+                                               if($status=="B")
+                                               {
+                                                  $label="Blocked";
+                                                  $color="red";
+                                               }
+                                              else if($status=="R")
+                                              {   $label="Retired";
+                                                  $color="blue";
+                                              }
+                                               
+     
+                                              
+echo "<tr><td>".$row['id']."</td><td id='na'>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['jobtype']."</td>
+<td>".$row['gender']."</td><td>".$row['address']."</td>
+<td>".$row['Join_Date']."</td><td>".$check."</td>
+ <td> <label  style='color:".$color."'>".$label."</label> </td>";
+                                                if($_SESSION['right']=="A"){
+  echo "<td><a type='button'  class='btn-sm btn-info' href='index.php?page=UpdateEmployee&empdata=".$row['id']."'>
+     Update</a> </td>";
+     echo "<td><button type='button' class='btn-sm btn-danger' onclick='delete_emp(".$row['id'].");'>
+     Delete</button>
+  </td>"; } echo" </tr>";
+                                            
+                                                
+                                               
+                                                }
                                             ?>
                                          </div>
                                     </tbody>
