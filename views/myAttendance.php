@@ -56,7 +56,7 @@ $my_id=$_GET["my_id"];
                    
                                             while($row=mysql_fetch_array($result)){
                                             
-                                                $output="<tr><td id='na'>".$row['Date']."</td><td>".$row['AttendanceStatus']."</td></tr>";
+                                                $output="<tr><td id='na'>".$row['Date']."</td><td>".$row['Attendance Status']."</td></tr>";
                                             echo $output;
                                                 
                                                

@@ -44,7 +44,6 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                                     <thead>
                                         <tr>
                                             <th>Employee ID</th>
-                                            <th>Name</th>
                                             <th>Attendance Date</th>
                                             <th>Attendance Status</th>
                                         </tr>
@@ -52,11 +51,11 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                               
                                     <tbody><div id="data">
                                         <?php
-                      $result=query("SELECT e.id,e.name,ea.AttendanceStatus,ea.Date from emp_attendance ea,employees e where e.id=ea.empid"); 
+                      $result=query("select * from emp_attendance"); 
                    
                                             while($row=mysql_fetch_array($result)){
                                             
-                                                $output="<tr><td>".$row['id']."</td><td>".$row['name']."</td><td id='na'>".$row['Date']."</td><td>".$row['AttendanceStatus']."</td></tr>";
+                                                $output="<tr><td>".$row['empid']."</td><td id='na'>".$row['Date']."</td><td>".$row['Attendance Status']."</td></tr>";
                                             echo $output;
                                                 
                                                

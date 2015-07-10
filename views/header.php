@@ -30,16 +30,15 @@ $h_id=$_SESSION['id'];
 <?php if(isset($_SESSION['right'])&&$page!="home") { 
 ?><li <?php if($page=="cpanel") { ?> class="active" <?php } ?> > <a href="index.php?page=cpanel">My Profile</a> </li> <?php
 
-if($_SESSION['right']=="E"||$_SESSION['right']=="A"||$_SESSION['right']=="M") { 
+if($_SESSION['right']=="E"||$_SESSION['right']=="A") { 
 ?>
     <li <?php if($page=="myAttendance") { ?> class="active" <?php } ?> > <a href="index.php?page=myAttendance&my_id=<?php echo $h_id; ?>">My Attendance list</a> </li>
   <?php     } 
 
 
- if($_SESSION['right']=="A"||$_SESSION['right']=="M") { ?>
+ if($_SESSION['right']=="A") { ?>
     <li <?php if($page=="employeeslist") { ?> class="active" <?php } ?> > <a href="index.php?page=employeeslist">Employees list</a> </li>
     <li <?php if($page=="attendance") { ?> class="active" <?php } ?> > <a href="index.php?page=attendance">Employees Attendance list</a> </li>
-    <li <?php if($page=="checkEmployee") { ?> class="active" <?php } ?> > <a href="index.php?page=checkEmployee">Employees Projects</a> </li>
     <?php    } ?>
    
 </ul>

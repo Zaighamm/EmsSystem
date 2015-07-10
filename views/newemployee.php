@@ -34,7 +34,7 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
 <div class="container">
 <div class="row" >
 <div class = "col-sm-8 col-sm-offset-2" style="margin-top:10px;" >
-<form class="well"  action="index.php?page=eregister" onsubmit="" method="post">
+<form class="well"   action="index.php?page=eregister" onsubmit="" method="post">
   <fieldset>
     <legend>Employee Registeration Form</legend>
  <div class="form-group col-md-12">
@@ -104,7 +104,7 @@ setTimeout("location.href = 'index.php?page=logout';",4000);
                     <button type="reset" class="btn btn-default btn-block btn-lg" onClick="window.location.href='index.php?page=cpanel'">Cancel</button>
                 </div>
                 <div class = "col-sm-3" style="margin-top:10px;">
-                     <button  type="submit"  name="addemp" id="addemp"   class="btn btn-primary btn-block btn-lg " onclick="" >Submit</button>
+                     <button  type="submit"   id="submit" class="btn btn-primary btn-block btn-lg " onclick="" >Submit</button>
 
 
                 </div>

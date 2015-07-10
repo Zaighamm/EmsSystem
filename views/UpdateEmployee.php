@@ -18,23 +18,11 @@ if(isset($_GET["empdata"]))
                                 $phone=$row["phone"];
                                 $jdate=$row["Join_Date"];
                                 $ldate=$row["Lev_Date"];
-                                $status=$row["status"];  
-                                $project=$row["project"];
-                                $client=$row["client"];
-                                $clientc=$row["clientc"]; 
+
 
                                            }
 
-
-
-$result=query("select flag from login where emp_id=$test_id"); 
-while($row=mysql_fetch_array($result)){ $rank=$row["flag"]; 
-}
- if(!$result)
-        {echo "error";
-        }
-}
-   
+   }
 
 if(isset($_POST['setdata']))
 {
@@ -48,16 +36,9 @@ if(isset($_POST['setdata']))
                                 $phone=$_POST["phone"];
                                 $jdate=$_POST["jdate"];
                                 $ldate=$_POST["ldate"];
-                                $status=$_POST["option"]; 
-                                $project=$_POST["project"];
-                                $client=$_POST["client"];
-                                $clientc=$_POST["clientc"]; 
-                                $rank=$_POST["option1"];  
 
 
-      $result=query("UPDATE employees SET `name` = '$name', `phone` = '$phone',`email` = '$email', `jobtype` = '$jobtype', `address`= '$address', `Join_Date` = '$jdate', `Lev_Date` = '$ldate',`gender`='$gender',`status`='$status',`project`='$project',`client`='$client',`clientc`='$clientc'   WHERE `id`=$test_id");
-
- $result=query("UPDATE login SET flag='$rank'  WHERE emp_id=$test_id");
+      $result=query("UPDATE employees SET `name` = '$name', `phone` = '$phone',`email` = '$email', `jobtype` = '$jobtype', `address`= '$address', `Join_Date` = '$jdate', `Lev_Date` = '$ldate',`gender`='$gender'  WHERE `id`=$test_id");
 
  if(!$result)
         {echo "error";
@@ -163,53 +144,9 @@ setTimeout("location.href = 'index.php?page=employeeslist';",2000);
         </div>
  </div>
 </div>
- <div class="form-group col-md-12">
-<div class="col-md-6">
-       <label style="">Project Name</label>
-            <div class=>
-                <input type="text" class="form-control" name="project" id="project" value="<?php echo $project; ?>">
-        </div>
- </div>
-</div>
 
- <div class="form-group col-md-12">
-<div class="col-md-6">
-       <label style="">Client Name</label>
-            <div class=>
-                <input type="text" class="form-control" name="client" id="client" value="<?php echo $client; ?>">
-        </div>
- </div>
-<div class="col-md-6">
-       <label style="">Client Company</label>
-            <div class=>
-                <input type="text" class="form-control" name="clientc" id="clientc" value="<?php echo $clientc; ?>">
-        </div>
- </div>
-</div>
+	 
 
-
-<div class="form-group col-md-12">
-<div class="col-md-6">
-       <label style="">Status</label>
-            <div class=>
-	   <select  class="form-control" name="option" id="option"  >
-      <option value="A" <?php if($status=="A") echo "selected"; ?> >Active</option>
-      <option value="R" <?php if($status=="R") echo "selected"; ?> >Retired</option>
-      <option value="B" <?php if($status=="B") echo "selected"; ?> >Blocked</option>
-  </select>
-    </div>
-</div>
-<div class="col-md-6">
-       <label style="">Rank</label>
-            <div class=>
-	   <select  class="form-control" name="option1" id="option1"  >
-      <option value="A" <?php if($rank=="A") echo "selected"; ?> >Administrator</option>
-      <option value="M" <?php if($rank=="M") echo "selected"; ?> >Manager</option>
-      <option value="E" <?php if($rank=="E") echo "selected"; ?> >Employee</option>
-  </select>
-    </div>
-</div>
-</div>
  <div class="row">
             	<div class = "col-sm-3 col-sm-offset-3" style="margin-top:10px;">
                     <button type="reset" class="btn btn-default btn-block btn-lg" onClick="window.location.href='index.php?page=employeeslist'">Cancel</button>
